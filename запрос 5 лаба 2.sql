@@ -1,3 +1,7 @@
+SELECT * FROM cities WHERE region NOT IN("E","W") LIMIT 20;
+
+ЗАПРОС
+
 -- phpMyAdmin SQL Dump
 -- version 5.2.0
 -- https://www.phpmyadmin.net/
