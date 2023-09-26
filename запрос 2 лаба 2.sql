@@ -1,3 +1,8 @@
+SELECT * FROM cities WHERE region IN("E","W") ORDER BY population
+
+  ЗАПРОС
+
+
 -- phpMyAdmin SQL Dump
 -- version 5.2.0
 -- https://www.phpmyadmin.net/
