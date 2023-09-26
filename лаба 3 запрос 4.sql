@@ -1,3 +1,10 @@
+SELECT name, population, (population / 40000.0) * 100
+FROM cities 
+ORDER BY population DESC
+LIMIT 10;
+
+ЗАПРОС 
+
 -- phpMyAdmin SQL Dump
 -- version 5.2.0
 -- https://www.phpmyadmin.net/
