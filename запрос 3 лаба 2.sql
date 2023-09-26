@@ -1,3 +1,9 @@
+SELECT * FROM cities WHERE region IN("S","C","N") AND population >= 50000
+
+  ЗАПРОС
+
+
+
 -- phpMyAdmin SQL Dump
 -- version 5.2.0
 -- https://www.phpmyadmin.net/
