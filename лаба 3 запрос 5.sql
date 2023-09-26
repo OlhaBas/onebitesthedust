@@ -1,3 +1,10 @@
+SELECT CONCAT(name, ' - ', (population / 40000000.0) * 100, '%') 
+  FROM cities WHERE (population / 40000000.0) * 100 >= 0.1 
+  ORDER BY (population / 40000000.0) * 100 DESC
+
+  ЗАПРОС
+
+
 -- phpMyAdmin SQL Dump
 -- version 5.2.0
 -- https://www.phpmyadmin.net/
