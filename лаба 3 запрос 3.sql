@@ -1,3 +1,10 @@
+SELECT CONCAT(name, ' (', region, ')')
+FROM cities 
+WHERE population >= 100000
+ORDER BY name ASC
+
+  ЗАПРОС
+
 -- phpMyAdmin SQL Dump
 -- version 5.2.0
 -- https://www.phpmyadmin.net/
