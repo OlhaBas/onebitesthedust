@@ -1,3 +1,11 @@
+SELECT *
+FROM cities
+ORDER BY region, population DESC;
+
+ЗАПРОС
+
+
+
 -- phpMyAdmin SQL Dump
 -- version 5.2.0
 -- https://www.phpmyadmin.net/
