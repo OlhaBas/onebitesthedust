@@ -1,3 +1,4 @@
+SELECT * FROM cities WHERE name LIKE '%донец%'; - ЗАПРОС
 -- phpMyAdmin SQL Dump
 -- version 5.2.0
 -- https://www.phpmyadmin.net/
