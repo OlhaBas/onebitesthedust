@@ -1,3 +1,9 @@
+SELECT * FROM cities
+  WHERE region IN("E","W","N") AND population BETWEEN 150000 AND 350000 LIMIT 20;
+
+ЗАПРОС
+
+
 -- phpMyAdmin SQL Dump
 -- version 5.2.0
 -- https://www.phpmyadmin.net/
