@@ -1,72 +1,44 @@
--- phpMyAdmin SQL Dump
--- version 5.2.1
--- https://www.phpmyadmin.net/
---
--- Host: 127.0.0.1
--- Generation Time: Nov 24, 2023 at 01:43 PM
--- Server version: 10.4.28-MariaDB
--- PHP Version: 8.2.4
+CREATE TABLE users 
+  (
+    User INT PRIMARY KEY AUTO_INCREMENT,
+    Username VARCHAR(255) NOT NULL,
+    Email VARCHAR(255) NOT NULL,
+    Password VARCHAR(255) NOT NULL
+);
 
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-START TRANSACTION;
-SET time_zone = "+00:00";
+CREATE TABLE projects 
+  (
+    Project INT PRIMARY KEY AUTO_INCREMENT,
+    ProjectName VARCHAR(255) NOT NULL
+);
 
+CREATE TABLE tasks 
+  (
+    Task INT PRIMARY KEY AUTO_INCREMENT,
+    TaskName VARCHAR(255) NOT NULL,
+    Description TEXT,
+    Author INT,
+    Project INT,
+    FOREIGN KEY (Author) REFERENCES Users(User),
+    FOREIGN KEY (Project) REFERENCES Projects(Project)
+);
 
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
+CREATE TABLE task_assignees 
+  (
+    TaskAssignee INT PRIMARY KEY AUTO_INCREMENT,
+    Task INT,
+    User INT,
+    FOREIGN KEY (Task) REFERENCES Tasks(Task),
+    FOREIGN KEY (User) REFERENCES Users(User)
+);
 
---
--- Database: `lab8db`
---
-
--- --------------------------------------------------------
-
---
--- Table structure for table `task_assignees`
---
-
-CREATE TABLE `task_assignees` (
-  `TaskAssignee` int(11) NOT NULL,
-  `Task` int(11) DEFAULT NULL,
-  `User` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Indexes for dumped tables
---
-
---
--- Indexes for table `task_assignees`
---
-ALTER TABLE `task_assignees`
-  ADD PRIMARY KEY (`TaskAssignee`),
-  ADD KEY `Task` (`Task`),
-  ADD KEY `User` (`User`);
-
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `task_assignees`
---
-ALTER TABLE `task_assignees`
-  MODIFY `TaskAssignee` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- Constraints for dumped tables
---
-
---
--- Constraints for table `task_assignees`
---
-ALTER TABLE `task_assignees`
-  ADD CONSTRAINT `task_assignees_ibfk_1` FOREIGN KEY (`Task`) REFERENCES `tasks` (`Task`),
-  ADD CONSTRAINT `task_assignees_ibfk_2` FOREIGN KEY (`User`) REFERENCES `users` (`User`);
-COMMIT;
-
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+CREATE TABLE files 
+  (
+    File INT PRIMARY KEY AUTO_INCREMENT,
+    FileName VARCHAR(255) NOT NULL,
+    FilePath VARCHAR(255) NOT NULL,
+    Task INT,
+    Project INT,
+    FOREIGN KEY (Task) REFERENCES Tasks(Task),
+    FOREIGN KEY (Project) REFERENCES Projects(Project)
+);
