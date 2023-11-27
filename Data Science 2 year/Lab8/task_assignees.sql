@@ -6,6 +6,12 @@ CREATE TABLE users
     Password VARCHAR(255) NOT NULL
 );
 
+CREATE TABLE IF NOT EXISTS users_projects
+  (
+   Project_id INT(256) UNSIGNED NOT NULL,
+   User_id INT(256) UNSIGNED NOT NULL  
+  );
+
 CREATE TABLE projects 
   (
     Project INT PRIMARY KEY AUTO_INCREMENT,
