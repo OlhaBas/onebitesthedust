@@ -10,18 +10,28 @@ FROM cities c
 JOIN regions r ON c.region = r.uuid
 WHERE r.name = 'Nord';
 
+SET NAMES utf8;
+SET time_zone = `+00:00`;
+SET foreign_key_checks = 0;
+SET sql_mode = `NO_AUTO_VALUE_ON_ZERO`;
+
+DROP TABLE IF EXISTS stations;
+DROP TABLE IF EXISTS metro_lines;
+
+
 CREATE TABLE stations 
     (
     station INT PRIMARY KEY,
-    name VARCHAR(255),
+    name VARCHAR(255) NOT NULL,
     latitude DECIMAL(10, 8),
     longitude DECIMAL(11, 8)
 );
 
 CREATE TABLE metro_lines 
     (
-    line INT PRIMARY KEY,
-    name VARCHAR(255)
+    line INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(255) NOT NULL,
+    colour VARCHAR(25) NOT NULL
 );
 
 CREATE TABLE stations_on_line 
